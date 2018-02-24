@@ -8,7 +8,7 @@ url: "http://www.nullgirl.com"  # 此处填写你的博客地址
 
 # About/contact
 owner: 
-  name: "阿园" # 填写作者信息：名字
+  name: "庄园" # 填写作者信息：名字
   email: 422453403@qq.com # 填写作者信息：邮箱
   bio: "大吉大利" # 填写作者信息：博客描述
 
@@ -43,7 +43,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "阿园" # 你的名字
+      author: "庄园" # 你的名字
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
