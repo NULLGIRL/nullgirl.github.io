@@ -13,14 +13,14 @@ owner:
   bio: "大吉大利" # 填写作者信息：博客描述
 
 # Data
-gavatar: img/favicon.png # 浏览器地址栏小图标，可自定义更改
-favicon: img/favicon.png # 浏览器地址栏小图标，可自定义更改
+gavatar: img/myicon.png # 浏览器地址栏小图标，可自定义更改
+favicon: img/myicon.png # 浏览器地址栏小图标，可自定义更改
 
 douban_username:  # 你的豆瓣id
 twitter_username: 
 github_username: "NULLGIRL"
 facebook_username: 
-weibo_username: 
+weibo_username: "阿园阿园阿_"
 zhihu_username: 
 
 # Build settings  
