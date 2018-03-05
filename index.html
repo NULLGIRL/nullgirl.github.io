@@ -18,7 +18,7 @@ description: "庄园 一个想当文身师的程序员。"
             {{ post.content | strip_html | truncate:150 }}
         </div>
     </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: " %Y/%m/%d" }}</p>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: " %Y.%m.%d" }}</p>
 </div>
 
 <hr>
