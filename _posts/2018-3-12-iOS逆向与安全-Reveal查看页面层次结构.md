@@ -7,20 +7,20 @@ tags: [iOS逆向与安全]
 description: 来看看App界面的结构层次吧。
 ---
 
-#简介
+# 简介
 `Reveal` 是一个界面调试工具，可以在iOS开发时动态地查看和修改应用程序的界面。不但可以在运行时看到iOS程序的界面层级关系，也可以实时地修改程序界面，不需要重新运行程序即可看到效果。
 
 ****
 
-#下载
+# 下载
 
 去[Reveal官网](http://revealapp.com/)下载Reveal试用版（土豪随意）。
 
 ****
 
-#使用介绍
-##1. 自己应用内使用（不逆向对Reveal的使用）
-###-手动导入
+# 使用介绍
+## 1. 自己应用内使用（不逆向对Reveal的使用）
+### -手动导入
 1.  打开Reveal，在菜单栏 --> Help --> Show Reveal Library in Finder --> iOS Library ，将RevealServer.framework拷贝出来。
 ![取出Reveal动态库](http://img.blog.csdn.net/20180312160050374?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYm9yaW5nX2NhdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
@@ -42,7 +42,7 @@ description: 来看看App界面的结构层次吧。
 ![实时修改后](http://img.blog.csdn.net/20180312155457277?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYm9yaW5nX2NhdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 在使用时，我们将Reveal连接上模拟器或真机上正在运行的iOS程序，然后就可以查看和调试iOS程序的界面。
 
-###-通过 CocoaPods 导入
+### -通过 CocoaPods 导入
 
 1.  Podfile 文件添加 pod 'Reveal-SDK', :configurations => ['Debug']
 2.  终端执行 pod update 或 pod install
@@ -50,7 +50,7 @@ description: 来看看App界面的结构层次吧。
 （通过这种方式集成的 Reveal, 可以查看模拟器和真机上 APP 界面布局。）
 
 
-##2.逆向分析中App对Reveal的使用
+## 2.逆向分析中App对Reveal的使用
 
 在Cydia中下载Reveal2Loader，安装后，--> 设置 --> Reveal --> Enable Applications --> 选择你要打开的应用
 ![设置中的Reveal](http://img.blog.csdn.net/20180312172141353?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYm9yaW5nX2NhdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
