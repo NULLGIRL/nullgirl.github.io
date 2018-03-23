@@ -97,10 +97,10 @@ uint32_t    reserved;   /* reserved */
 #define    MH_TWOLEVEL  0x80    // 二级名称空间
 ```
 
-#### dyld
+**dyld**
 动态链接器，苹果的开源项目，[下载](https://link.jianshu.com/?t=http://opensource.apple.com/tarballs/dyld/dyld-360.18.tar.gz) ，当内核执行到`LC_DYLINK`（后文讲述）的时候，链接器会启动，查找进程所依赖的动态库，并加载到内存中。
 
-#### flags ： MH_PIE - 随机地址空间（ASLR）
+**flags ： MH_PIE - 随机地址空间（ASLR）**
 进程每一次启动，地址空间都会随机化。如果采用传统的方式，程序每启动一次，启动的虚拟内存镜像一致的话，黑客很容易就重写内存来破解程序。所以，ASLR可以有效避免黑客的攻击。
 
 打开Xcode，来到Main函数，打断点，运行程序开启lldb调试。当到达断点位置时，在控制台输入：
@@ -110,7 +110,7 @@ image list -o -f
 ```
 可以发现每次运行程序，地址都在变化。
 
-#### flags ： MH_TWOLEVEL - 二级名称空间
+**flags ： MH_TWOLEVEL - 二级名称空间**
 这是dyld的一个独有特性，说是符号空间中还包括所在库的信息，这样子就可以让两个不同的库导出相同的符号，与其对应的是平摊名称空间.
 
 
@@ -258,23 +258,23 @@ uint32_t    reserved2;  /* reserved (for count or sizeof) */
 ### 演示查看load commands结构
 **`方式1： 终端`**
 
-#### 查看Mach-O文件的所有数据
+**查看Mach-O文件的所有数据**
 终端输入：
 ```
 otool -lv + 文件
 ```
 ![终端查看Mach-O文件数据](https://img-blog.csdn.net/2018032318183249?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-#### 查看__text 节的全部内容(二进制)
+**查看__text 节的全部内容(二进制)**
 ```
 otool -s __TEXT __text + 文件
 ```
 ![查看__text 节的内容](https://img-blog.csdn.net/20180323182833742?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-#### 查看__text 节的全部内容（汇编）
+**查看__text 节的全部内容（汇编**
 ![查看__text 节的内容（汇编）](https://img-blog.csdn.net/2018032318310184?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
-#### 查看__text 节的内容前10条数据（汇编）
+**查看__text 节的内容前10条数据（汇编）**
 ![查看__text 节的内容前10条数据](https://img-blog.csdn.net/2018032318313055?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
