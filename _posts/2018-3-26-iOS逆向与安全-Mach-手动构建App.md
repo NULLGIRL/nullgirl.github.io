@@ -13,16 +13,19 @@ description: 今天开始手动构建一个App吧！
 1. 使用iTools获取，点击导出按钮，导出成功后，可以获取ipa文件。
 2. 使用终端输入 `file + ipa文件名` ，可以查看到ipa的类型，我们可以发现是一个zip的压缩包。
 3. 把ipa解压后，可以得到
-1.  Container，这个文件夹是iTools帮我们导出的沙盒目录；
-2.  iTunesArtwork 图标（iTunes上显示的）；
-3.  iTunesMetadata.plist iTunes上的配置文件；
-4.  Payload文件夹，包含了一个App包（是一个文件夹)，右键显示包内容，可以查看到App的文件结构，里面包含了第三方的framework、plist配置文件、storyboardc、nib、图片音视频等资源文件、可执行文件(与App同名)
+
+    1.  Container，这个文件夹是iTools帮我们导出的沙盒目录；
+    2.  iTunesArtwork 图标（iTunes上显示的）；
+    3.  iTunesMetadata.plist iTunes上的配置文件；
+    4.  Payload文件夹，包含了一个App包（是一个文件夹)，右键显示包内容，可以查看到App的文件结构，里面包含了第三方的framework、plist配置文件、storyboardc、nib、图片音视频等资源文件、可执行文件(与App同名)
+    
 5. 查看命令：
-1. 可以用 `file命令` 查看该文件是Mach-O文件。
-2.  `lipo -info + 文件` 查看该文件的架构类型。
-3.  `nm -nm + 文件 | less` 查看可执行文件包含的符号。
-4. 使用 `otool -L 文件 | less ` 查看可执行文件编译的库。
-5. 二进制文件中包含的是机器码，我们可以使用 `otool -tV + 文件 | less` 来查看二进制文件中的汇编代码。
+
+    1. 可以用 `file命令` 查看该文件是Mach-O文件。
+    2.  `lipo -info + 文件` 查看该文件的架构类型。
+    3.  `nm -nm + 文件 | less` 查看可执行文件包含的符号。
+    4. 使用 `otool -L 文件 | less ` 查看可执行文件编译的库。
+    5. 二进制文件中包含的是机器码，我们可以使用 `otool -tV + 文件 | less` 来查看二进制文件中的汇编代码。
 
 **App的包含关系：**
 
