@@ -4,7 +4,7 @@ title: iOS逆向与安全 - Mach-O文件格式解析
 date: 2018-3-23
 categories: blog
 tags: [iOS逆向与安全]
-description: 使用Cycript脚本语言注入程序，修改界面布局方法等。
+description:  Mach-O 可执行文件解析。
 ---
 
 ### 前言
