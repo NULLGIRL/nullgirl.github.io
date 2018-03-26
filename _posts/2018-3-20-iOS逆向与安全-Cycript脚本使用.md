@@ -24,7 +24,8 @@ Cycript的主要用户是目前在iOS上进行逆向工程工作的人员。Cycr
 # 二、Cycript脚本命令的简单使用
 
 ##  1. 选择器和消息
-Objective-C不是“调用方法”，而是基于`“发送消息”`的思想。这些消息的语法涉及一组方括号内的参数的关键字中缀表示法。消息的名称称为“选择器”，Objective-C编译器将这些转换为对objc_msgSend的调用。Cycript也是如此。
+Objective-C不是“调用方法”，而是基于 `“发送消息”` 的思想。这些消息的语法涉及一组方括号内的参数的关键字中缀表示法。消息的名称称为“选择器”，Objective-C编译器将这些转换为对objc_msgSend的调用。Cycript也是如此。
+
 ```
 /** 方式1  Cycript自动地从字符串中构建一个选择器*/
 cy# ?debug
@@ -132,8 +133,11 @@ cy# block(10)
 ##  1.  将TIM背景隐藏
 
 `先来看一下效果图`
+
 ![效果图](https://img-blog.csdn.net/20180320162938119?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 `操作步骤`
+
 ```
 /** 确认进程名或者PID */
 ZYs-iPhone5s:~ root# ps -e | grep TIM
@@ -159,17 +163,22 @@ cy# #0x1743f8a00.hidden = YES
 /** 退出cycript */
 Control + D
 ```
+
 ![操作图](https://img-blog.csdn.net/20180320114710688?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
 ## 2.在手机屏保页面弹出弹窗口和截屏
+
 `弹窗效果图`
+
 ![弹窗效果图](https://img-blog.csdn.net/20180320162054729?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 `cycript 运行代码图`
+
 ![cycript 运行代码图](https://img-blog.csdn.net/20180320162200954?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 注意要输错方法。
+
 ```
 Last login: Tue Mar 20 14:03:30 on ttys000
 
@@ -199,6 +208,7 @@ cy#
 
 
 # 四、其他-链接分享
+
 - [cycript官网：http://www.cycript.org/](http://www.cycript.org/)
 - [cycript手册：http://www.cycript.org/manual/](http://www.cycript.org/manual/)
 - [cycript使用技巧：http://iphonedevwiki.net/index.php/Cycript_Tricks](http://iphonedevwiki.net/index.php/Cycript_Tricks)

@@ -71,9 +71,11 @@ ssh root@192.168.xx.xx
 1.  打开Reveal，在菜单栏 –> Help –> Show Reveal Library in Finder –> iOS Library ，将RevealServer.framework拷贝出来。
 2.  打开IFunBox， 找到路径， --> Library --> Frameworks --> 删除原有的RevealServer.framework  --> 将 Step1 的RevealServer.framework拷贝进去
 3.  连接越狱设备后，输入killall SpringBoard重启手机
+
 ```
 killall SpringBoard
 ```
+
 ![重启越狱机](http://img.blog.csdn.net/20180312172902828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYm9yaW5nX2NhdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 4.  手机再次打开TIM，Mac电脑再次打开Reveal，会发现
