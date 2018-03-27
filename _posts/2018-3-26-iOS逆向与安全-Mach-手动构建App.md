@@ -49,11 +49,11 @@ Note right of app包: 6.资源文件（图片、音频、视频）
 
 -  打开Xcode，command + b 编译程序，编译完成后，选择show the Report Navigator（即工具栏最后一个，用快捷键command + 9 也可以），选择By Time，选中第一个，即可查看到Build的整个流程。
 
-![编译流程](https://img-blog.csdn.net/20180326151542881?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![编译流程](http://nullgirl.com/img/Posts/20180326/20180326151542881)
 
 -  点开详情，可以看到每一步编译的具体的操作。编译过程是执行了CompileC ， CompileC包含的命令是，先cd到该工程目录下，声明变量Path，调用clang编译工具[^footnote]。所以Xcode的编译过程即对编译工具的包装。
 
-![编译详情](https://img-blog.csdn.net/20180326152045154?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![编译详情](http://nullgirl.com/img/Posts/20180326/20180326152045154)
 
 
 ## 2. 手动构建App
@@ -66,14 +66,14 @@ Note right of app包: 6.资源文件（图片、音频、视频）
 - makefile文件里，ResourceDirecrory 和 AppName 换成自己的App名称。
 - makefile文件里，在生成info那儿，将XXXXXXXXX.com.xxxxx.AppName中的XXXXXXXXX改为TeamID,将com.xxxxx.AppName改为自己的BundleID ， 例如： `EDN5ZR66TZ.com.yrd.yrdStore`
 
-![获取TeamID](https://img-blog.csdn.net/20180326184539656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![获取TeamID](http://nullgirl.com/img/Posts/20180326/20180326184539656)
 
 - 需要打开entitlements.plist修改application-identifier字段，
 换成自己的证书编号， xxxxx -> BT6VAMA5N9,以及加上自己的BundID，同上一步。
 
-![证书编号](https://img-blog.csdn.net/20180326171449468?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![证书编号](http://nullgirl.com/img/Posts/20180326/20180326171449468)
 
-![entitlements.plist修改application-identifier](https://img-blog.csdn.net/20180327104828744?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![entitlements.plist修改application-identifier](http://nullgirl.com/img/Posts/20180326/20180327104828744)
 
 ### ②Makefile源代码解析
 
@@ -174,7 +174,7 @@ provision查看命令：`security cms -D -i provision_file`
 1. embedded 描述文件的名称
 2. xx xxx (XXXXXXXX)  证书创建者和ID，钥匙串可以查看
 
-![证书编号](https://img-blog.csdn.net/20180326171449468?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![证书编号](http://nullgirl.com/img/Posts/20180326/20180326171449468)
 
 ```
 @cp -f embedded.mobileprovision $(TmpBuildFile)
@@ -186,7 +186,7 @@ $(TmpBuildFile)
 @#使用codesign -vv xx.app 命令查看App签名信息
 ```
 
-![证书](https://img-blog.csdn.net/20180326190134378?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![证书](http://nullgirl.com/img/Posts/20180326/20180326190134378)
 
 **8、打包ipa**
 
@@ -217,7 +217,7 @@ Target.ipa->iPhone: 通过iTools安装
 
 ### ③ 手动构建App开始
 
-![0.准备源文件](https://img-blog.csdn.net/20180326165807631?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![0.准备源文件](http://nullgirl.com/img/Posts/20180326/20180326165807631)
 
 ```
 /*
@@ -227,7 +227,7 @@ Target.ipa->iPhone: 通过iTools安装
 make compile
 ```
 
-![1.编译目标文件](https://img-blog.csdn.net/20180326165842321?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![1.编译目标文件](http://nullgirl.com/img/Posts/20180326/20180326165842321)
 
 ```
 /*
@@ -236,7 +236,7 @@ make compile
 make link
 ```
 
-![2.链接目标文件](https://img-blog.csdn.net/20180326165854921?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![2.链接目标文件](http://nullgirl.com/img/Posts/20180326/20180326165854921)
 
 ```
 /*
@@ -245,7 +245,7 @@ make link
 make storyboard
 ```
 
-![3.编译storyboard](https://img-blog.csdn.net/20180326165907570?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![3.编译storyboard](http://nullgirl.com/img/Posts/20180326/20180326165907570)
 
 ```
 /*
@@ -254,7 +254,7 @@ make storyboard
 make plist
 ```
 
-![4.生成plist文件](https://img-blog.csdn.net/20180326165919434?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![4.生成plist文件](http://nullgirl.com/img/Posts/20180326/20180326165919434)
 
 
 ```
@@ -264,7 +264,7 @@ make plist
 make asset
 ```
 
-![5.拷贝资源文件](https://img-blog.csdn.net/20180326165957719?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![5.拷贝资源文件](http://nullgirl.com/img/Posts/20180326/20180326165957719)
 
 ```
 /*
@@ -273,7 +273,7 @@ make asset
 make dsym
 ```
 
-![6.生成dSYM文件](https://img-blog.csdn.net/2018032617002315?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![6.生成dSYM文件](http://nullgirl.com/img/Posts/20180326/2018032617002315)
 
 ```
 /*
@@ -282,7 +282,7 @@ make dsym
 make codesign
 ```
 
-![7.签名文件](https://img-blog.csdn.net/20180326170036514?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![7.签名文件](http://nullgirl.com/img/Posts/20180326/20180326170036514)
 
 ```
 /*
@@ -291,12 +291,12 @@ make codesign
 make package
 ```
 
-![8.打包ipa](https://img-blog.csdn.net/20180326170059978?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![8.打包ipa](http://nullgirl.com/img/Posts/20180326/20180326170059978)
 
 
 最后通过iTools安装到手机上：
 
-![安装ipa包](https://img-blog.csdn.net/20180327105201680?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![安装ipa包](http://nullgirl.com/img/Posts/20180326/20180327105201680)
 
 感谢！
 
