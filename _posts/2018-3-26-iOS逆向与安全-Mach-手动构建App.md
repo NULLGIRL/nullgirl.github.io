@@ -40,7 +40,7 @@ Note right of app包: 5.nib
 Note right of app包: 6.资源文件（图片、音频、视频）
 ```
 
-![1解析ipa](../img/Posts/20180326/1解析ipa.png)
+![1解析ipa](http://nullgirl.com/img/Posts/20180326/1解析ipa.png)
 
 # 二、构建App
 ## 1. Xcode自动构建App
@@ -204,7 +204,7 @@ Payload->Target.ipa:
 Target.ipa->iPhone: 通过iTools安装
 ```
 
-![2打包ipa](../img/Posts/20180326/2打包ipa.png)
+![2打包ipa](http://nullgirl.com/img/Posts/20180326/2打包ipa.png)
 
 ```
 @mkdir -p Payload
