@@ -134,7 +134,7 @@ cy# block(10)
 
 `先来看一下效果图`
 
-![效果图](https://img-blog.csdn.net/20180320162938119?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![效果图](http://nullgirl.com/img/Posts/20180320/20180320162938119.png)
 
 `操作步骤`
 
@@ -164,18 +164,18 @@ cy# #0x1743f8a00.hidden = YES
 Control + D
 ```
 
-![操作图](https://img-blog.csdn.net/20180320114710688?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![操作图](http://nullgirl.com/img/Posts/20180320/20180320114710688.png)
 
 
 ## 2.在手机屏保页面弹出弹窗口和截屏
 
 `弹窗效果图`
 
-![弹窗效果图](https://img-blog.csdn.net/20180320162054729?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![弹窗效果图](http://nullgirl.com/img/Posts/20180320/20180320162054729.png)
 
 `cycript 运行代码图`
 
-![cycript 运行代码图](https://img-blog.csdn.net/20180320162200954?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![cycript 运行代码图](http://nullgirl.com/img/Posts/20180320/20180320162200954.png)
 
 注意要输错方法。
 

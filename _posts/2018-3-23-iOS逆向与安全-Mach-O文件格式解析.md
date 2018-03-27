@@ -31,7 +31,7 @@ description:  Mach-O 可执行文件解析。
 # Mach-O文件是什么
 在OSX和iOS系统下，平时接触到的可执行文件、库文件、dsym文件、动态库、动态链接器（dyld）都是这种格式。Mach-O的组成结构包括：`Header` (头部)、`Load commands`（加载命令）、`Data`（Data包含多个 `Segment`（段），Segment中包含多个 `Section`（节））
 
-![Mach-O文件格式](https://img-blog.csdn.net/20180323152821659?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Mach-O文件格式](http://nullgirl.com/img/Posts/20180323/20180323152821659.png)
 
 简单介绍dsym文件，后续开篇介绍。
 >  - **dSYM 文件是什么：** Xcode编译项目后，会有一个项目同名的 dSYM 文件，dSYM 是保存 16 进制函数地址映射信息的中转文件。
@@ -154,11 +154,11 @@ MH_MAGIC_64  X86_64        ALL  0x00     EXECUTE    51       6184   NOUNDEFS DYL
 
 如下图：
 
-![Mach-O头部文件说明](https://img-blog.csdn.net/2018032316184636?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Mach-O头部文件说明](http://nullgirl.com/img/Posts/20180323/2018032316184636.png)
 
 `方式2： 利用MachOExplorer工具查看Mach-O文件的header结构`
 
-![MachOExplorer工具查看header信息](https://img-blog.csdn.net/20180323162054558?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![MachOExplorer工具查看header信息](http://nullgirl.com/img/Posts/20180323/20180323162054558.png)
 
 比终端看的更直观看，终端的好处就是装逼还挺成功的，哈哈。
 
@@ -192,11 +192,11 @@ uint32_t cmdsize;   /* total size of command in bytes */
 otool -lv + 文件
 ```
 
-![终端查看Mach-O文件数据](https://img-blog.csdn.net/2018032318183249?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![终端查看Mach-O文件数据](http://nullgirl.com/img/Posts/20180323/2018032318183249.png)
 
 `方式2： 工具查看`
 
-![Load commands](https://img-blog.csdn.net/20180323173438176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![Load commands](http://nullgirl.com/img/Posts/20180323/20180323173438176.png)
 
 ### Segments
 
@@ -304,21 +304,21 @@ uint32_t    reserved2;  /* reserved (for count or sizeof) */
 otool -s __TEXT __text + 文件
 ```
 
-![查看__text 节的内容](https://img-blog.csdn.net/20180323182833742?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看__text 节的内容](http://nullgirl.com/img/Posts/20180323/20180323182833742.png)
 
 `查看__text 节的全部内容（汇编）`
 
-![查看__text 节的内容（汇编）](https://img-blog.csdn.net/2018032318310184?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看__text 节的内容（汇编）](http://nullgirl.com/img/Posts/20180323/2018032318310184.png)
 
 `查看__text 节的内容前10条数据（汇编）`
 
-![查看__text 节的内容前10条数据](https://img-blog.csdn.net/2018032318313055?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看__text 节的内容前10条数据](http://nullgirl.com/img/Posts/20180323/2018032318313055.png)
 
 `利用MachOExplorer工具`
 
-![MachOExplorer查看Mach-O文件数据](https://img-blog.csdn.net/20180323181955864?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![MachOExplorer查看Mach-O文件数据](http://nullgirl.com/img/Posts/20180323/20180323181955864.png)
 
-![MachOExplorer查看__text](https://img-blog.csdn.net/20180326110048586?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![MachOExplorer查看__text](http://nullgirl.com/img/Posts/20180323/20180326110048586.png)
 
 
 ------------
@@ -333,11 +333,11 @@ otool -s __TEXT __text + 文件
 4.  选择xcode菜单的Debug  —> debug workflow —>  view memory  之后再Address里面输入$0地址，回车
 5. 可以看到Mach-O文件格式的一些数据 ,所以0x100000000就是Mach-O文件加载开始的地方.
 
-![查看__TEXT的虚拟地址](https://img-blog.csdn.net/20180323180958474?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看__TEXT的虚拟地址](http://nullgirl.com/img/Posts/20180323/20180323180958474.png)
 
-![查看基地址](https://img-blog.csdn.net/20180323181124813?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看基地址](http://nullgirl.com/img/Posts/20180323/20180323181124813.png)
 
-![查看新地址内容](https://img-blog.csdn.net/20180323181145659?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![查看新地址内容](http://nullgirl.com/img/Posts/20180323/20180323181145659.png)
 
 
 本文参考了的文章：
