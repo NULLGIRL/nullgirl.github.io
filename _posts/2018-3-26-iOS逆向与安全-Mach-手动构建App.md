@@ -9,38 +9,38 @@ description: 今天开始手动构建一个App吧！
 # 一、如何获取App
 
 ## 使用iTools工具
-
 1. 使用iTools获取，点击导出按钮，导出成功后，可以获取ipa文件。
 2. 使用终端输入 `file + ipa文件名` ，可以查看到ipa的类型，我们可以发现是一个zip的压缩包。
 3. 把ipa解压后，可以得到
 
-    - Container，这个文件夹是iTools帮我们导出的沙盒目录；
-    -  iTunesArtwork 图标（iTunes上显示的）；
-    -   iTunesMetadata.plist iTunes上的配置文件；
-    -   Payload文件夹，包含了一个App包（是一个文件夹)，右键显示包内容，可以查看到App的文件结构，里面包含了第三方的framework、plist配置文件、storyboardc、nib、图片音视频等资源文件、可执行文件(与App同名)
+    1.  Container，这个文件夹是iTools帮我们导出的沙盒目录；
+    2.  iTunesArtwork 图标（iTunes上显示的）；
+    3.  iTunesMetadata.plist iTunes上的配置文件；
+    4.  Payload文件夹，包含了一个App包（是一个文件夹)，右键显示包内容，可以查看到App的文件结构，里面包含了第三方的framework、plist配置文件、storyboardc、nib、图片音视频等资源文件、可执行文件(与App同名)
     
 5. 查看命令：
 
-    -   可以用 `file命令` 查看该文件是Mach-O文件。
-    -    `lipo -info + 文件` 查看该文件的架构类型。
-    -    `nm -nm + 文件 | less` 查看可执行文件包含的符号。
-    -   使用 `otool -L 文件 | less ` 查看可执行文件编译的库。
-    -  二进制文件中包含的是机器码，我们可以使用 `otool -tV + 文件 | less` 来查看二进制文件中的汇编代码。
+    1. 可以用 `file命令` 查看该文件是Mach-O文件。
+    2.  `lipo -info + 文件` 查看该文件的架构类型。
+    3.  `nm -nm + 文件 | less` 查看可执行文件包含的符号。
+    4. 使用 `otool -L 文件 | less ` 查看可执行文件编译的库。
+    5. 二进制文件中包含的是机器码，我们可以使用 `otool -tV + 文件 | less` 来查看二进制文件中的汇编代码。
 
 **App的包含关系：**
 
 ```sequence
 ipa->app:  zip 解压
 app-->ipa:  打包ipa
-app-->app包内容:  右键显示包内容
-Note right of app包内容: 1、Mach-O文件
-Note right of app包内容: 2、framework
-Note right of app包内容: 3、plist
-Note right of app包内容: 4、storyboardc
-Note right of app包内容: 5、nib
-Note right of app包内容: 6、资源文件（图片、音频、视频）
+app->app包:  右键显示包内容
+Note right of app包: 1.Mach-O文件
+Note right of app包: 2.framework
+Note right of app包: 3.plist
+Note right of app包: 4.storyboardc
+Note right of app包: 5.nib
+Note right of app包: 6.资源文件（图片、音频、视频）
 ```
 
+![1解析ipa](../img/Posts/20180326/1解析ipa.png)
 
 # 二、构建App
 ## 1. Xcode自动构建App
@@ -64,12 +64,16 @@ Note right of app包内容: 6、资源文件（图片、音频、视频）
 注意：
 
 - makefile文件里，ResourceDirecrory 和 AppName 换成自己的App名称。
-- makefile文件里，在生成info那儿，将XXXXXXXXX改为TeamID,在开发者账号中可以获取
+- makefile文件里，在生成info那儿，将XXXXXXXXX.com.xxxxx.AppName中的XXXXXXXXX改为TeamID,将com.xxxxx.AppName改为自己的BundleID ， 例如： `EDN5ZR66TZ.com.yrd.yrdStore`
+
 ![获取TeamID](https://img-blog.csdn.net/20180326184539656?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 - 需要打开entitlements.plist修改application-identifier字段，
-换成自己的证书编号， xxxxx -> BT6VAMA5N9
+换成自己的证书编号， xxxxx -> BT6VAMA5N9,以及加上自己的BundID，同上一步。
+
 ![证书编号](https://img-blog.csdn.net/20180326171449468?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
+![entitlements.plist修改application-identifier](https://img-blog.csdn.net/20180327104828744?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ### ②Makefile源代码解析
 
@@ -116,7 +120,7 @@ $(ResourceDirecrory)/$(ConstIBFile)/Main.storyboard
 
 **4.准备info.plist文件**
 
-@defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleIdentifier XXXXXXXXX.com.netease.com.netease.$(AppName)
+@defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleIdentifier XXXXXXXXX.com.xxxx.$(AppName)
 
 XXXXXXXXX为TeamID,记得修改
 
@@ -127,7 +131,7 @@ CFBundleDevelopmentRegion en #国际化时优先使用的语言
 
 @defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleExecutable $(AppName)
 @#Team ID + app identifier
-@defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleIdentifier XXXXXXXXX.com.netease.$(AppName)#XXXXXXXXX为TeamID,记得修改
+@defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleIdentifier XXXXXXXXX.com.xxxxx.$(AppName)#XXXXXXXXX为TeamID,记得修改
 @defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleInfoDictionaryVersion 6.0 #plist文件结构的版本
 @defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundleName $(AppName)
 @defaults write $(current_dir)/$(TmpBuildFile)/Info CFBundlePackageType APPL #APPL: app，FMWK: frameworks，BND: loadable bundles
@@ -166,8 +170,10 @@ mobileprovision 描述文件包括 `Team ID` 、`Bundle ID` 、`可用设备列�
 provision查看命令：`security cms -D -i provision_file`
 
 此处需要修改
+
 1. embedded 描述文件的名称
 2. xx xxx (XXXXXXXX)  证书创建者和ID，钥匙串可以查看
+
 ![证书编号](https://img-blog.csdn.net/20180326171449468?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ```
@@ -186,17 +192,19 @@ $(TmpBuildFile)
 
 ```sequence
 
-Note right of app包内容: 1、Mach-O文件
-Note right of app包内容: 2、framework
-Note right of app包内容: 3、plist
-Note right of app包内容: 4、storyboardc
-Note right of app包内容: 5、nib
-Note right of app包内容: 6、资源文件（图片、音频、视频）
-app包内容->target app:  压缩打包
-target app->payload文件夹:
-payload文件夹->target ipa: 
-target ipa->iPhone: 通过iTools安装
+Note right of app包: 1.Mach-O文件
+Note right of app包: 2.framework
+Note right of app包: 3.plist
+Note right of app包: 4.storyboardc
+Note right of app包: 5.nib
+Note right of app包: 6.资源文件（图片、音频、视频）
+app包->TargetApp:  压缩打包
+TargetApp->Payload:
+Payload->Target.ipa:
+Target.ipa->iPhone: 通过iTools安装
 ```
+
+![2打包ipa](../img/Posts/20180326/2打包ipa.png)
 
 ```
 @mkdir -p Payload
@@ -286,11 +294,16 @@ make package
 ![8.打包ipa](https://img-blog.csdn.net/20180326170059978?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 
+最后通过iTools安装到手机上：
+
+![安装ipa包](https://img-blog.csdn.net/20180327105201680?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvcmluZ19jYXQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 感谢！
 
 
 [^footnote]:  **clang** ： Clang是一个C语言、C++、Objective-C、C++语言的轻量级编译器。源代码发布于BSD协议下。也是Xcode 第一的编译器。
+
+
 
 
 
